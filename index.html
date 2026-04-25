@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ترزي السفارات | Sifart Tailor</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ترزي السفارات في مدينة نصر. خياطة راقية، تفصيل بدلات، وتعديلات بدقة عالية. Sifart Tailor in Nasr City offers premium tailoring and alterations.">
+    <meta name="keywords" content="ترزي, سفارات, خياطة, مدينة نصر, بدلات, تفصيل, Tailor, Sifart, Nasr City, Suits, Alterations">
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
+    <link rel="canonical" href="https://yourdomain.com/">
+    
+    <!-- 
+    robots.txt content:
+    User-agent: *
+    Allow: /
+    Sitemap: https://yourdomain.com/sitemap.xml
+    
+    sitemap.xml content:
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://yourdomain.com/</loc>
+        <lastmod>2026-04-25</lastmod>
+        <priority>1.0</priority>
+      </url>
+    </urlset>
+    -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧵</text></svg>">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0B162C',
+                        gold: '#D4AF37',
+                        'gold-light': '#F3E5AB',
+                        charcoal: '#2D3035',
+                        offwhite: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    boxShadow: {
+                        'gold': '0 4px 14px 0 rgba(212, 175, 55, 0.39)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body {
+            background-color: #F8F9FA;
+            color: #2D3035;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(11, 22, 44, 0.85), rgba(11, 22, 44, 0.85)), url('https://images.unsplash.com/photo-1574634534894-89d7576c8259?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #D4AF37, #F3E5AB, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Review Card Hover */
+        .review-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(11, 22, 44, 0.6);
+            backdrop-filter: blur(4px);
+        }
+        .modal-active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        
+        /* Language Toggle hiding logic */
+        html[dir="ltr"] .ar-text { display: none !important; }
+        html[dir="rtl"] .en-text { display: none !important; }
+        html[dir="ltr"] .en-block { display: block !important; }
+        html[dir="rtl"] .en-block { display: none !important; }
+        html[dir="rtl"] .ar-block { display: block !important; }
+        html[dir="ltr"] .ar-block { display: none !important; }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-navy/95 backdrop-blur-md border-b border-gold/20 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <span class="text-3xl">✂️</span>
+                    <div>
+                        <h1 class="text-2xl font-bold text-white tracking-wide">
+                            <span class="ar-text">ترزي السفارات</span>
+                            <span class="en-text font-serif">Sifart Tailor</span>
+                        </h1>
+                        <p class="text-gold text-xs tracking-wider">
+                            <span class="ar-text">أبو رائد</span>
+                            <span class="en-text">Abu Raed</span>
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <button onclick="toggleLanguage()" class="flex items-center gap-2 px-4 py-2 rounded-full border border-gold text-gold hover:bg-gold hover:text-navy transition-all duration-300 font-semibold focus:outline-none focus:ring-2 focus:ring-gold/50">
+                        <i class="fa-solid fa-globe"></i>
+                        <span class="ar-text">English</span>
+                        <span class="en-text">العربية</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="flex-grow">
+        <section class="relative hero-bg h-[85vh] flex items-center justify-center fade-in pt-20">
+            <div class="text-center px-4 max-w-4xl">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6 gold-gradient-text leading-tight">
+                    <span class="ar-block">خياطة راقية تليق بك</span>
+                    <span class="en-block font-serif">Elegant Tailoring Fit For You</span>
+                </h2>
+                <p class="text-gray-300 text-lg md:text-2xl mb-10 font-light">
+                    <span class="ar-block">خبرة وذوق رفيع في قلب مدينة نصر لتفصيل وتعديل أحدث صيحات الموضة</span>
+                    <span class="en-block">Expertise and refined taste in the heart of Nasr City for bespoke tailoring and alterations</span>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#location" class="bg-gold text-navy px-8 py-4 rounded-full font-bold text-lg hover:bg-gold-light transition-all shadow-gold hover:-translate-y-1 w-full sm:w-auto text-center">
+                        <i class="fa-solid fa-location-dot ml-2 ar-text"></i>
+                        <span class="ar-text">احصل على الاتجاهات</span>
+                        <i class="fa-solid fa-location-dot mr-2 en-text"></i>
+                        <span class="en-text">Get Directions</span>
+                    </a>
+                    <a href="tel:01025070898" class="border-2 border-gold text-gold hover:bg-gold hover:text-navy px-8 py-4 rounded-full font-bold text-lg transition-all hover:-translate-y-1 w-full sm:w-auto text-center">
+                        <i class="fa-solid fa-phone ml-2 ar-text"></i>
+                        <span class="ar-text">اتصل بنا 01025070898</span>
+                        <i class="fa-solid fa-phone mr-2 en-text"></i>
+                        <span class="en-text">Call Us 01025070898</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats / GMB Summary -->
+        <section class="bg-navy py-8 border-b border-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-center gap-8 md:gap-16 text-white text-center">
+                <div class="flex flex-col items-center">
+                    <div class="text-gold text-4xl mb-2">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold">4.8</h3>
+                    <p class="text-gray-400">
+                        <span class="ar-text">تقييم جوجل</span>
+                        <span class="en-text">Google Rating</span>
+                    </p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="text-gold text-4xl mb-2">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold">13+</h3>
+                    <p class="text-gray-400">
+                        <span class="ar-text">مراجعة سعيدة</span>
+                        <span class="en-text">Happy Reviews</span>
+                    </p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="text-gold text-4xl mb-2">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-xl md:text-3xl mt-2">
+                        <span class="ar-text">11 ص - 12 م</span>
+                        <span class="en-text">11 AM - 12 AM</span>
+                    </h3>
+                    <p class="text-gray-400">
+                        <span class="ar-text">مفتوح يومياً</span>
+                        <span class="en-text">Open Daily</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-20 bg-white" id="services">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-navy mb-4">
+                        <span class="ar-text">خدماتنا المميزة</span>
+                        <span class="en-text font-serif">Our Premium Services</span>
+                    </h2>
+                    <p class="text-gray-500 mb-6 text-lg max-w-2xl mx-auto">
+                        <span class="ar-text">نقدم مجموعة متكاملة من خدمات الخياطة والتفصيل بأعلى معايير الجودة لتناسب جميع أفراد الأسرة.</span>
+                        <span class="en-text">We offer a complete range of tailoring and alteration services with the highest quality standards for the whole family.</span>
+                    </p>
+                    <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-scissors"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">خياطة وتفصيل</span><span class="en-text">Tailoring</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-tape"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تعديلات الملابس</span><span class="en-text">Alterations</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-shirt"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تعديلات الملابس الرجالية</span><span class="en-text">Men's Clothing Alterations</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-person-dress"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تعديلات الملابس الحريمي</span><span class="en-text">Women's Clothing Alterations</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-child-reaching"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تعديلات ملابس الأطفال</span><span class="en-text">Kids Clothing Alterations</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-vest-patches"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">إصلاح جميع الملابس</span><span class="en-text">Clothing Repairs</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-user-tie"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تفصيل بدل رجالي</span><span class="en-text">Custom Suits</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تعديل وتفصيل الفساتين</span><span class="en-text">Dress Alterations & Custom</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-shirt"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تعديل البلوزات</span><span class="en-text">Blouse Alterations</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-socks"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تعديل البنطلونات</span><span class="en-text">Trouser Alterations</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-briefcase"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تفصيل الزي الموحد</span><span class="en-text">Uniform Tailoring</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-wrench"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">تغيير السوست والبطائن</span><span class="en-text">Zipper Replacement</span></h4>
+                    </div>
+                    <!-- Service Item -->
+                    <div class="bg-offwhite p-4 rounded-xl border border-gray-100 flex items-center gap-4 hover:shadow-md transition-shadow hover:border-gold/30">
+                        <div class="w-10 h-10 rounded-full bg-gold/10 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-gem"></i></div>
+                        <h4 class="font-bold text-navy"><span class="ar-text">إصلاح الجلود والجينز</span><span class="en-text">Leather & Denim Repairs</span></h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="py-20 bg-offwhite">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold text-navy mb-4">
+                        <span class="ar-text">ماذا يقول عملاؤنا</span>
+                        <span class="en-text font-serif">What Our Clients Say</span>
+                    </h2>
+                    <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg review-card border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-right text-gold/20 text-6xl absolute top-4 left-4 ar-text"></i>
+                        <i class="fa-solid fa-quote-left text-gold/20 text-6xl absolute top-4 right-4 en-text"></i>
+                        <div class="flex text-gold mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 relative z-10 leading-relaxed italic">
+                            <span class="ar-text">"تفصيل ممتاز ومواعيد دقيقة، الشغل نظيف جداً والتعامل راقي. أنصح به بشدة لأي شخص يبحث عن جودة السفارات."</span>
+                            <span class="en-text">"Excellent tailoring and precise timing. The work is very clean and the treatment is classy. Highly recommend to anyone looking for embassy-quality."</span>
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-navy rounded-full flex items-center justify-center text-white font-bold text-xl">A</div>
+                            <div>
+                                <h4 class="font-bold text-navy">Ahmed M.</h4>
+                                <p class="text-sm text-gray-500">Google Reviewer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg review-card border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-right text-gold/20 text-6xl absolute top-4 left-4 ar-text"></i>
+                        <i class="fa-solid fa-quote-left text-gold/20 text-6xl absolute top-4 right-4 en-text"></i>
+                        <div class="flex text-gold mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 relative z-10 leading-relaxed italic">
+                            <span class="ar-text">"أفضل ترزي تعاملت معاه في مدينة نصر. الخامات ممتازة والخياطة مضبوطة بالملي، تسلم إيديكم."</span>
+                            <span class="en-text">"The best tailor I've dealt with in Nasr City. Excellent materials and stitching is accurate to the millimeter. Great job."</span>
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-navy rounded-full flex items-center justify-center text-white font-bold text-xl">O</div>
+                            <div>
+                                <h4 class="font-bold text-navy">Omar K.</h4>
+                                <p class="text-sm text-gray-500">Google Reviewer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg review-card border border-gray-100 relative">
+                        <i class="fa-solid fa-quote-right text-gold/20 text-6xl absolute top-4 left-4 ar-text"></i>
+                        <i class="fa-solid fa-quote-left text-gold/20 text-6xl absolute top-4 right-4 en-text"></i>
+                        <div class="flex text-gold mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-6 relative z-10 leading-relaxed italic">
+                            <span class="ar-text">"شغلهم احترافي جداً والأسعار معقولة مقارنة بالجودة. المكان بيكون زحمة أحياناً لكن يستحق الانتظار."</span>
+                            <span class="en-text">"Very professional work and reasonable prices compared to the quality. Sometimes crowded but worth the wait."</span>
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-navy rounded-full flex items-center justify-center text-white font-bold text-xl">S</div>
+                            <div>
+                                <h4 class="font-bold text-navy">Said M.</h4>
+                                <p class="text-sm text-gray-500">Google Reviewer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location & Contact -->
+        <section id="location" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-bold text-navy mb-6">
+                            <span class="ar-text">موقعنا والتواصل</span>
+                            <span class="en-text font-serif">Location & Contact</span>
+                        </h2>
+                        <div class="w-24 h-1 bg-gold mb-8"></div>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-gold/10 text-gold rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                                    <i class="fa-solid fa-map-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-navy mb-1">
+                                        <span class="ar-text">العنوان</span>
+                                        <span class="en-text">Address</span>
+                                    </h4>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        <span class="ar-text">الحديقة الدولية، مدينة نصر، محافظة القاهرة 4441306</span>
+                                        <span class="en-text">Al Hadiqah Ad Dawleyah, Nasr City, Cairo Governorate 4441306</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-gold/10 text-gold rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-navy mb-1">
+                                        <span class="ar-text">ساعات العمل</span>
+                                        <span class="en-text">Working Hours</span>
+                                    </h4>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        <span class="ar-text">السبت إلى الجمعة: 11 صباحاً – 12 منتصف الليل</span>
+                                        <span class="en-text">Saturday to Friday: 11 AM – 12 AM</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-gold/10 text-gold rounded-full flex items-center justify-center flex-shrink-0 text-xl">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-navy mb-1">
+                                        <span class="ar-text">رقم الهاتف</span>
+                                        <span class="en-text">Phone Number</span>
+                                    </h4>
+                                    <a href="tel:01025070898" class="text-navy hover:text-gold transition-colors font-bold text-lg" dir="ltr">010 25070898</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 flex gap-4">
+                            <a href="https://share.google/5Gg9T4zJ4u5ciGEQ7" target="_blank" class="bg-navy text-white px-6 py-3 rounded-lg hover:bg-gold hover:text-navy transition-all font-semibold shadow-lg inline-flex items-center gap-2">
+                                <i class="fa-solid fa-location-arrow"></i>
+                                <span class="ar-text">الاتجاهات</span>
+                                <span class="en-text">Directions</span>
+                            </a>
+                            <button class="bg-gray-100 text-navy px-6 py-3 rounded-lg hover:bg-gray-200 transition-all font-semibold shadow flex items-center gap-2">
+                                <i class="fa-regular fa-bookmark"></i>
+                                <span class="ar-text">حفظ</span>
+                                <span class="en-text">Save</span>
+                            </button>
+                            <button onclick="navigator.clipboard.writeText(window.location.href); alert('Link copied!');" class="bg-gray-100 text-navy px-6 py-3 rounded-lg hover:bg-gray-200 transition-all font-semibold shadow flex items-center gap-2">
+                                <i class="fa-solid fa-share-nodes"></i>
+                                <span class="ar-text">مشاركة</span>
+                                <span class="en-text">Share</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="h-[400px] rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+                        <iframe 
+                            src="https://maps.google.com/maps?q=Al%20Hadiqah%20Ad%20Dawleyah,%20Nasr%20City,%20Cairo%20Governorate&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white pt-16 pb-8 border-t-4 border-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+                <div class="text-center md:text-right">
+                    <h2 class="text-2xl font-bold mb-2">
+                        <span class="ar-text">ترزي السفارات</span>
+                        <span class="en-text font-serif">Sifart Tailor</span>
+                    </h2>
+                    <p class="text-gray-400 text-sm">
+                        <span class="ar-text">الخيار الأول للأناقة في مدينة نصر.</span>
+                        <span class="en-text">The first choice for elegance in Nasr City.</span>
+                    </p>
+                </div>
+                
+                <div class="flex gap-4 text-2xl text-gold">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 gap-4">
+                <p>&copy; 2026 Sifart Tailor. All rights reserved.</p>
+                <div class="flex gap-6 items-center">
+                    <button onclick="openModal()" class="hover:text-gold transition-colors underline">
+                        <span class="ar-text">سياسة الخصوصية</span>
+                        <span class="en-text">Privacy Policy</span>
+                    </button>
+                    <span class="text-gray-700">|</span>
+                    <p>Designed by <a href="https://bizmapper.github.io" target="_blank" class="text-gold hover:text-gold-light underline font-medium tracking-wide">BizMapper</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="bg-white rounded-2xl w-11/12 max-w-2xl max-h-[80vh] overflow-y-auto shadow-2xl relative">
+            <div class="sticky top-0 bg-white px-6 py-4 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-navy">
+                    <span class="ar-text">سياسة الخصوصية</span>
+                    <span class="en-text">Privacy Policy</span>
+                </h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-red-500 text-2xl font-bold focus:outline-none">&times;</button>
+            </div>
+            <div class="p-6 text-gray-700 leading-relaxed space-y-4">
+                <div class="ar-block text-right" dir="rtl">
+                    <p><strong>مقدمة:</strong> نحترم خصوصيتك ونلتزم بحماية بياناتك الشخصية.</p>
+                    <p><strong>جمع المعلومات:</strong> لا نقوم بجمع أي بيانات شخصية تلقائياً عند تصفحك لهذا الموقع. المعلومات الوحيدة التي قد نتلقاها هي عند تواصلك المباشر معنا عبر الهاتف أو زيارة مقرنا.</p>
+                    <p><strong>استخدام المعلومات:</strong> أي معلومات تشاركها معنا تُستخدم فقط لغرض تلبية طلبات الخياطة الخاصة بك وتقديم أفضل خدمة ممكنة.</p>
+                    <p><strong>ملفات تعريف الارتباط (Cookies):</strong> يستخدم هذا الموقع ملفات تعريف ارتباط أساسية لضمان عمل الموقع (مثل الاحتفاظ بتفضيل اللغة).</p>
+                    <p><strong>تحديثات:</strong> قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر.</p>
+                </div>
+                <div class="en-block text-left" dir="ltr">
+                    <p><strong>Introduction:</strong> We respect your privacy and are committed to protecting your personal data.</p>
+                    <p><strong>Information Collection:</strong> We do not automatically collect personal data when you browse this website. The only information we receive is when you contact us directly via phone or visit our location.</p>
+                    <p><strong>Information Use:</strong> Any information you share is used solely for the purpose of fulfilling your tailoring requests and providing the best service.</p>
+                    <p><strong>Cookies:</strong> This site uses basic cookies to ensure site functionality (such as remembering your language preference).</p>
+                    <p><strong>Updates:</strong> We may update this privacy policy from time to time.</p>
+                </div>
+            </div>
+            <div class="px-6 py-4 bg-gray-50 border-t rounded-b-2xl text-center md:text-right flex justify-end">
+                <button onclick="closeModal()" class="bg-navy text-white px-6 py-2 rounded-lg hover:bg-navy/90 transition-colors">
+                    <span class="ar-text">إغلاق</span>
+                    <span class="en-text">Close</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactivity Scripts -->
+    <script>
+        function toggleLanguage() {
+            const htmlTag = document.documentElement;
+            const isAr = htmlTag.getAttribute('dir') === 'rtl';
+            
+            if (isAr) {
+                htmlTag.setAttribute('dir', 'ltr');
+                htmlTag.setAttribute('lang', 'en');
+                // Use a non-standard font weight for English headings to look better
+                document.body.classList.remove('font-sans');
+            } else {
+                htmlTag.setAttribute('dir', 'rtl');
+                htmlTag.setAttribute('lang', 'ar');
+                document.body.classList.add('font-sans');
+            }
+            
+            // Re-trigger animations if desired
+            document.body.classList.remove('fade-in');
+            void document.body.offsetWidth; // trigger reflow
+            document.body.classList.add('fade-in');
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('privacyModal');
+        
+        function openModal() {
+            modal.classList.add('modal-active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+        }
+        
+        function closeModal() {
+            modal.classList.remove('modal-active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
